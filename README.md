@@ -18,18 +18,21 @@ For licencing & sales and other enquiries, please email contact@logicality.io.
 
 Currently supported devices:
 
- - iButton reader using https://www.maximintegrated.com/en/products/ibutton-one-wire/ibutton/DS9490R.html
+1. iButton reader using [DS9490R USB Adapter](https://www.maximintegrated.com/en/products/ibutton-one-wire/ibutton/DS9490R.html). Download drivers [here](https://www.maximintegrated.com/en/products/ibutton-one-wire/one-wire/software-tools/drivers/download-1-wire-ibutton-drivers-for-windows.html). Supported driver version is `v405`, 64bit.
 
-Like support of additional devices, smart card readers etc, please let us know.
+If you would like to see support of additional devices, smart card readers etc, please let us know.
 
 ## Installation Guide
 
 Downloads are available in two formats:
 
-- An MSI that installs as a Windows Service. You will need the appropriate rights to perform the installation.
+- An MSI that installs a Windows Service. You will need the appropriate rights to perform the installation.
 - A standalone console application. Useful for trying out on a restricted system and/or for development purposes.
   
 Download the latest release from https://github.com/logicality-io/tag-assistant-support/releases
+
+**Note**: during installation you will see a warning, "This package was created with a trial version of Advanced Installer...". This will be fixed
+in a later version.
 
 By default, the MSI will install into `%ProgramFiles%\Tag Assistant`.
 
