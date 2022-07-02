@@ -1,6 +1,6 @@
 # Logicality Tag Assistant
 
-Welcome to the technical support area for the [Logicality Tag Assistant](https://tag-assistant.logicality.io). 
+Welcome to the technical support area for the [Logicality Tag Assistant](https://tag-assistant.logicality.io) (_not final name_).
 
 At this time, the product status is **preview** for testing with early adopters.
 
@@ -68,6 +68,10 @@ You may optionally remove the other entries, however if you remove `https://tag-
 you will not be able to use the test/diagnostic facilities hosted there. 
 
 _Could this process be improved?_ [Please let us know!](https://github.com/logicality-io/tag-assistant-support/issues/new)
+
+## Test your installation.
+
+Go to https://tag-assist.logicality.io to test your installation and follow the instruction there. Any issues, please let us know.
 
 ## Developer Guide
 
