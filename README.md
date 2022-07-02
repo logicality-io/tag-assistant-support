@@ -26,7 +26,7 @@ Currently supported devices:
 
 1. iButton reader using [DS9490R USB Adapter](https://www.maximintegrated.com/en/products/ibutton-one-wire/ibutton/DS9490R.html). Download drivers [here](https://www.maximintegrated.com/en/products/ibutton-one-wire/one-wire/software-tools/drivers/download-1-wire-ibutton-drivers-for-windows.html). Supported driver version is `v405`, 64bit.
 
-If you would like to see support of additional devices, smart card readers etc, please let us know.
+If you would like to see support of additional devices, smart card readers etc., please let us know.
 
 ## Installation Guide
 
