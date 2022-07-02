@@ -69,6 +69,8 @@ you will not be able to use the test/diagnostic facilities hosted there.
 
 _Could this process be improved?_ [Please let us know!](https://github.com/logicality-io/tag-assistant-support/issues/new)
 
+Logs are stored at `%ProgramData%/Logicality/Tag Assist/`
+
 ## Test your installation.
 
 Go to https://tag-assist.logicality.io to test your installation and follow the instruction there. Any issues, please let us know.
