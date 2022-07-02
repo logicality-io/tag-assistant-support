@@ -6,7 +6,7 @@ At this time, the product status is **preview** and for evaluation with early ad
 
 If you have a technical support issue or a new product feature request, please [create an issue](https://github.com/logicality-io/tag-assistant-support/issues/new).
 
-For licencing & sales and other enquiries, please email contact@logicality.io.
+For licencing, sales and other enquiries, please email contact@logicality.io.
 
 ## What is it?
 
