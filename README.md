@@ -11,7 +11,7 @@ For licencing & sales and other enquiries, please email contact@logicality.io.
 ## What is it?
 
 Logicality Tag Assistant is a desktop Windows service that bridges reading USB devices (such as iButton) to authorized web applications. Enabled web
-applications use some simple JavaScript to make an HTTP call to this service. By default, browsers won't allow such traffic due to CORS. Only explictily configured
+applications use some simple JavaScript to make an HTTP call to this service. By default, browsers won't allow such traffic due to CORS. Thus only explictily configured
 web applications will be authorized.
 
 ## Technical Requirements & Information
