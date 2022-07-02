@@ -2,7 +2,11 @@
 
 Welcome to the technical support area for the [Logicality Tag Assistant](https://tag-assistant.logicality.io). 
 
+At this time, the product status is **preview** for testing by early adopters.
+
 If you have a technical support issue or a new product feature request, please [create an issue](https://github.com/logicality-io/tag-assistant-support/issues/new).
+
+For licencing & sales enquiries, please email contact@logicality.io.
 
 ## Technical Requirements/Information
 
@@ -56,4 +60,4 @@ _Could this process be improved?_ [Please let us know!](https://github.com/logic
 
 ## Developer Guide
 
-TODO
+Coming soon...
