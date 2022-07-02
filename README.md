@@ -2,13 +2,19 @@
 
 Welcome to the technical support area for the [Logicality Tag Assistant](https://tag-assistant.logicality.io) (_not final name_).
 
-At this time, the product status is **preview** for testing with early adopters.
+At this time, the product status is **preview** for evaluation with early adopters.
 
 If you have a technical support issue or a new product feature request, please [create an issue](https://github.com/logicality-io/tag-assistant-support/issues/new).
 
 For licencing & sales and other enquiries, please email contact@logicality.io.
 
-## Technical Requirements/Information
+## What is it?
+
+Logicality Tag Assistant is a desktop Windows service that bridges reading USB devices (such as iButton) to authorized web applications. Enabled web
+applications use some simple JavaScript to make an HTTP call to this service. By default, browsers won't allow such traffic due to CORS. Only explictily configured
+web applications will be authorized.
+
+## Technical Requirements & Information
 
 - All up-to-date major browsers (Chrome, Edge and Firefox) are supported.
 - Currently tested with Windows 10, 64bit.If other operating system version / bitness required, please let us know.
@@ -45,8 +51,8 @@ Go to https://tag-assistant.logicality.io to test your installation.
 Leveraging [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) for security reasons, Tag Assistant will only respond to
 HTTP requests from [Origin(s)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin) that you explicitly configure.
 
-In the installation directory(or the extraction directory if using the standalone version) there is an `origin.json` file. 
-By default is looks like:
+In the installation directory(or the extraction directory if using the standalone version) there is an `origins.json` file. 
+By default, it looks like:
 
 ```json
 {
@@ -60,9 +66,9 @@ By default is looks like:
 }
 ```
 
-Add the rigin of the application that integrates with Tag Assistant to this list. For example, if your applcation is hosted
+Add the origin of the application that integrates with Tag Assistant to this list. For example, if your applcation is hosted
 at `https://company.internal/myapp` the origin entry will be `https://company.internal`. Restart the service / console application 
-after making the changes. 
+after making any changes. 
 
 You may optionally remove the other entries, however if you remove `https://tag-assistant.logicality.io`
 you will not be able to use the test/diagnostic facilities hosted there. 
@@ -74,7 +80,3 @@ Logs are stored at `%ProgramData%/Logicality/Tag Assist/`
 ## Test your installation.
 
 Go to https://tag-assist.logicality.io to test your installation and follow the instruction there. Any issues, please let us know.
-
-## Developer Guide
-
-Coming soon...
