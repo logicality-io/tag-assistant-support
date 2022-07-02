@@ -34,7 +34,7 @@ Download the latest release from https://github.com/logicality-io/tag-assistant-
 **Note**: during installation you will see a warning, "This package was created with a trial version of Advanced Installer...". This will be fixed
 in a later version.
 
-By default, the MSI will install into `%ProgramFiles%\Tag Assistant`.
+By default, Tag Assistant will install into `%ProgramFiles%\Logicality\Tag Assistant`.
 
 Go to https://tag-assistant.logicality.io to test your installation.
 
