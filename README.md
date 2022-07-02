@@ -11,7 +11,7 @@ For licencing & sales and other enquiries, please email contact@logicality.io.
 ## Technical Requirements/Information
 
 - All up-to-date major browsers (Chrome, Edge and Firefox) are supported.
-- Windows 7 or later, 64 bit.
+- Currently tested with Windows 10, 64bit.If other operating system version / bitness required, please let us know.
 - Low system requirements - the service typically consumes less than 50MB RAM and 0% CPU when idle.
 - [1-Wire/iButton Drivers for Windows](https://www.maximintegrated.com/en/products/ibutton-one-wire/one-wire/software-tools/drivers/download-1-wire-ibutton-drivers-for-windows.html)
 - Allow the handling of incoming HTTP requests on localhost on port 37888, adjusting any firewall rules as necessary.
