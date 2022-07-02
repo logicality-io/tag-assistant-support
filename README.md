@@ -2,7 +2,7 @@
 
 Welcome to the technical support area for the [Logicality Tag Assistant](https://tag-assistant.logicality.io) (_not final name_).
 
-At this time, the product status is **preview** for evaluation with early adopters.
+At this time, the product status is **preview** and for evaluation with early adopters.
 
 If you have a technical support issue or a new product feature request, please [create an issue](https://github.com/logicality-io/tag-assistant-support/issues/new).
 
