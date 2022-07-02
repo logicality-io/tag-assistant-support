@@ -2,11 +2,11 @@
 
 Welcome to the technical support area for the [Logicality Tag Assistant](https://tag-assistant.logicality.io). 
 
-At this time, the product status is **preview** for testing by early adopters.
+At this time, the product status is **preview** for testing with early adopters.
 
 If you have a technical support issue or a new product feature request, please [create an issue](https://github.com/logicality-io/tag-assistant-support/issues/new).
 
-For licencing & sales enquiries, please email contact@logicality.io.
+For licencing & sales and other enquiries, please email contact@logicality.io.
 
 ## Technical Requirements/Information
 
@@ -15,6 +15,12 @@ For licencing & sales enquiries, please email contact@logicality.io.
 - Low system requirements - the service typically consumes less than 50MB RAM and 0% CPU when idle.
 - [1-Wire/iButton Drivers for Windows](https://www.maximintegrated.com/en/products/ibutton-one-wire/one-wire/software-tools/drivers/download-1-wire-ibutton-drivers-for-windows.html)
 - Allow the handling of incoming HTTP requests on localhost on port 37888, adjusting any firewall rules as necessary.
+
+Currently supported devices:
+
+ - iButton reader using https://www.maximintegrated.com/en/products/ibutton-one-wire/ibutton/DS9490R.html
+
+Like support of additional devices, smart card readers etc, please let us know.
 
 ## Installation Guide
 
@@ -31,7 +37,7 @@ Go to https://tag-assistant.logicality.io to test your installation.
 
 ## Configure Allowed Origins
 
-Leveraging [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), Tag Assistant will only respond to
+Leveraging [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) for security reasons, Tag Assistant will only respond to
 HTTP requests from [Origin(s)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin) that you explicitly configure.
 
 In the installation directory(or the extraction directory if using the standalone version) there is an `origin.json` file. 
