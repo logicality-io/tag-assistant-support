@@ -37,9 +37,9 @@ Downloads are available in two formats:
   
 Download the latest release from https://github.com/logicality-io/tag-assistant-support/releases
 
-**Note 1**: During installation you will see a warning, "This package was created with a trial version of Advanced Installer...". This will be fixed
+- **Note 1**: During installation you will see a warning, "This package was created with a trial version of Advanced Installer...". This will be fixed
 in a future version.
-**Note 2**: During installation you will see a windows warning, "Do you want to allow this app from an unknown publisher to make changes to your device?". This will be fixed
+- **Note 2**: During installation you will see a windows warning, "Do you want to allow this app from an unknown publisher to make changes to your device?". This will be fixed
 in a future version.
 
 By default, Tag Assistant will install into `%ProgramFiles%\Logicality\Tag Assistant`.
