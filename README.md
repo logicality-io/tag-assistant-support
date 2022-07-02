@@ -2,7 +2,7 @@
 
 Welcome to the technical support area for the [Logicality Tag Assistant](https://tag-assistant.logicality.io). 
 
-If you have a technical support issue or a new product feature request, please [create an issue](https://github.com/logicality-io/tag-assistant-support/issues/new)
+If you have a technical support issue or a new product feature request, please [create an issue](https://github.com/logicality-io/tag-assistant-support/issues/new).
 
 ## Technical Requirements/Information
 
