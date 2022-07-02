@@ -78,4 +78,4 @@ Logs are stored at `%ProgramData%/Logicality/Tag Assist/`
 
 ## Test your installation.
 
-Go to https://tag-assist.logicality.io to test your installation and follow the instruction there. Any issues, please let us know.
+Go to https://tag-assistant.logicality.io to test your installation and follow the instruction there. Any issues, please let us know.
