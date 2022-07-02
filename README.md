@@ -17,7 +17,7 @@ web applications will be authorized.
 ## Technical Requirements & Information
 
 - All up-to-date major browsers on Windows (Chrome, Edge and Firefox) are supported.
-- Currently tested with Windows 10, 64bit. If other operating system version / bitness required, please let us know.
+- Currently tested with Windows 10, 64bit. If another operating system version or 32bit is desired, please let us know.
 - Low system requirements - the service typically consumes less than 50MB RAM and 0% CPU when idle.
 - Allow the handling of incoming HTTP requests on localhost on port 37888, adjusting any firewall rules as necessary.
 
