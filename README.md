@@ -40,7 +40,7 @@ If you would like to see support of additional devices, smart card readers etc.,
 Download and install drivers for the devices you wish to use:
 
 - [iButton One Wire Drivers](https://www.maximintegrated.com/en/products/ibutton-one-wire/one-wire/software-tools/drivers/download-1-wire-ibutton-drivers-for-windows.html). Supported driver version is `v405`, 64 bit.
-- [ACS ACR122U USB NFC](https://www.acs.com.hk/en/products/3/acr122u-usb-nfc-reader/).
+- [ACS ACR122U USB NFC drivers](https://www.acs.com.hk/en/products/3/acr122u-usb-nfc-reader/).
 
 Downloads are available in two formats:
 
