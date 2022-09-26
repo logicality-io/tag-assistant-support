@@ -4,7 +4,7 @@ import 'normalize.css/normalize.css';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import { Button, Icon } from '@blueprintjs/core';
-import { GetIndex, GetTag } from './tagAssistant';
+import { Probe, ReadTag } from './tagAssistant';
 import { useEffect } from "react";
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
     setShowInfo(true);
     setShowNoTagRead(false);
 
-    const getTagResult = await GetTag();
+    const getTagResult = await ReadTag();
 
     setShowInfo(false);
 
@@ -46,7 +46,7 @@ function App() {
   }
 
   const probe = async () => {
-    const probeResult = await GetIndex();
+    const probeResult = await Probe();
 
     if(!probeResult.success){
       setErrorMessage(probeResult.errorMessage);
