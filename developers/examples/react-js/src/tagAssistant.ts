@@ -3,35 +3,46 @@ interface IndexInfoResult {
   connectedDevices: number;
 }
 
-export interface ReadTagResult {
-  /** The Tag unique identifier. Will be empty if no tag was read within timeout period, or an 
-   * error occurs.
+interface ConnectionResult {
+  /** True if Tag Assistant return a result within the specified timeout. Other false if request timesout
+   * or some other error occured.
+   *  False if TagAssistant was not detected or no devices were connected.*/
+  success: boolean;
+
+  /** An error number indicating the reason why the probe failed. If success is true, this will be -1.
+  * Error codes:
+  *  0 = Unknown. An unknwon or unexpected error has occured. See message for details.
+  *  1 = AbortError. Occurs if Tag Assistant is not installed nor running on user's device.
+  *  2 = TypeError. Occurs if Tag Assistant is installed and running but requests was blocked due to CORS configuration.
+  *  3 = No Tag Presented was presented during the wait window.
+  */
+  errorCode: number,
+
+  /** Additional informational message for logging purposes */
+  errorMessage: string
+}
+
+export interface ReadTagResult extends ConnectionResult {
+  /** The Tag unique identifier. Will be empty if no tag was read within timeout period, or if an 
+   * error occured.
    */
   tag: string;
-  /** An error message if any. */
-  errorMessage: string;
 }
 
 interface GetTagResponse {
   tag: string;
 }
 
-export interface ProbeResult {
-  /** True if Tag Assistant is detected and has one or more devices connected.
-   *  False if TagAssistant was not detected or no devices were connected. UI elements, such
-   * as disabling an icon, should be reactive to this value. The errorMessage contains details of the 
-   * error. */
-  success: boolean;
+export interface ProbeResult extends ConnectionResult {
   /** The installed version of Tag Assistant. This can be compared with known minimal supported version 
    * and provide user feedback if the version is not supported. if success is false, this will be empty.
    */
   installedVersion: string;
+
   /** The number of currently connected devices. If success is false, this will be 0. If success is true and 
    * this valus is 0, then the user does not have any supported devices connected at time of the probe.
   */
   connectedDevices: number;
-  /** An error message indicating the reason why the probe failed. If success is true, this will be empty. */
-  errorMessage: string,
 }
 
 export async function Probe(timeoutMilliseconds: number = 1000, portNumber: number = 37888): Promise<ProbeResult> {
@@ -62,6 +73,7 @@ export async function Probe(timeoutMilliseconds: number = 1000, portNumber: numb
         success: false,
         connectedDevices: 0,
         installedVersion: '',
+        errorCode: 0,
         errorMessage: `Tag Assistant returned unexpected response ${probe.status}.`,
       }
     }
@@ -72,27 +84,27 @@ export async function Probe(timeoutMilliseconds: number = 1000, portNumber: numb
       success: true,
       connectedDevices: indexInfo.connectedDevices,
       installedVersion: indexInfo.version,
-      errorMessage: ''
+      errorCode: 3,
+      errorMessage: 'Fetch to TagAssistant was successful, however no tag was presented duing the wait window.'
     }
   }
   catch (error) {
-    var message = (error as Error).message;
+    var errorCode = 0;
+    const errorObject = (error as Error);
+    var message = errorObject.message;
+    const name = errorObject.name;
 
-    console.log('TagAssistant: Error occured: ${error}')
-
-    if (message.startsWith('NetworkError')) {
-      message = `Connection failed. Is the Tag Assistant software installed and running?`
+    if (name === 'AbortError') {
+      errorCode = 1;
     }
-    if (message.startsWith('The operation was aborted.')) {
-      message = `Connection failed. Is the Tag Assistant software installed and running?`
-    }
-    if (message.startsWith('The user aborted a request.')) {
-      message = `Connection failed. Is the Tag Assistant software installed and running?`
+    else if (name === 'TypeError') {
+      errorCode = 2;
     }
     return {
       success: false,
       connectedDevices: 0,
       installedVersion: '',
+      errorCode: errorCode,
       errorMessage: message,
     }
   }
@@ -122,30 +134,47 @@ export async function ReadTag(timeoutSeconds: number = 30, portNumber: number = 
 
     if (!getTokens.ok) {
       return {
+        success: false,
+        errorCode: 0, 
         errorMessage: `Tag Assistant returned unexpected response ${getTokens.status}.`,
-        tag: ""
+        tag: ''
       }
     }
     const getTagResponse = await getTokens.json() as GetTagResponse
 
+    const tag = getTagResponse.tag;
+
+    if(tag === ''){
+      return {
+        success: false,
+        errorCode: 0,
+        errorMessage: '',
+        tag: getTagResponse.tag
+      };
+    }
+
     return {
+      success: true,
+      errorCode: -1,
       errorMessage: '',
       tag: getTagResponse.tag
     };
   }
   catch (error) {
-    var message = (error as Error).message;
+    var errorCode = 0;
+    const errorObject = (error as Error);
+    const message = errorObject.message;
+    const name = errorObject.name;
 
-    if (message.startsWith('NetworkError')) {
-      message = `${message} Is the Tag Assistant software installed and running?`
+    if (name === 'AbortError') {
+      errorCode = 1;
     }
-    if (message.startsWith('The operation was aborted.')) {
-      message = `Operation timed out. Is the Tag Assistant software installed and running?`
-    }
-    if (message.startsWith('The user aborted a request.')) {
-      message = `Operation timed out. Is the Tag Assistant software installed and running?`
+    else if (name === 'TypeError') {
+      errorCode = 2;
     }
     return {
+      success: false,
+      errorCode: errorCode,
       errorMessage: message,
       tag: ''
     }
