@@ -3,7 +3,7 @@ interface IndexInfoResult {
   connectedDevices: number;
 }
 
-interface ReadTagResult {
+export interface ReadTagResult {
   /** The Tag unique identifier. Will be empty if no tag was read within timeout period, or an 
    * error occurs.
    */
@@ -19,9 +19,18 @@ interface GetTagResponse {
 export interface ProbeResult {
   /** True if Tag Assistant is detected and has one or more devices connected.
    *  False if TagAssistant was not detected or no devices were connected. UI elements, such
-   * as disabling an icon, should be reactive to this value. */
+   * as disabling an icon, should be reactive to this value. The errorMessage contains details of the 
+   * error. */
   success: boolean;
-  /** An error message indicating the reason why the probe failed. */
+  /** The installed version of Tag Assistant. This can be compared with known minimal supported version 
+   * and provide user feedback if the version is not supported. if success is false, this will be empty.
+   */
+  installedVersion: string;
+  /** The number of currently connected devices. If success is false, this will be 0. If success is true and 
+   * this valus is 0, then the user does not have any supported devices connected at time of the probe.
+  */
+  connectedDevices: number;
+  /** An error message indicating the reason why the probe failed. If success is true, this will be empty. */
   errorMessage: string,
 }
 
@@ -51,26 +60,25 @@ export async function Probe(timeoutMilliseconds: number = 1000, portNumber: numb
     if (!probe.ok) {
       return {
         success: false,
+        connectedDevices: 0,
+        installedVersion: '',
         errorMessage: `Tag Assistant returned unexpected response ${probe.status}.`,
       }
     }
 
     const indexInfo = await probe.json() as IndexInfoResult;
 
-    if (indexInfo.connectedDevices === 0) {
-      return {
-        success: false,
-        errorMessage: `No devices connected.`,
-      }
-    }
-
     return {
       success: true,
+      connectedDevices: indexInfo.connectedDevices,
+      installedVersion: indexInfo.version,
       errorMessage: ''
     }
   }
   catch (error) {
     var message = (error as Error).message;
+
+    console.log('TagAssistant: Error occured: ${error}')
 
     if (message.startsWith('NetworkError')) {
       message = `Connection failed. Is the Tag Assistant software installed and running?`
@@ -83,6 +91,8 @@ export async function Probe(timeoutMilliseconds: number = 1000, portNumber: numb
     }
     return {
       success: false,
+      connectedDevices: 0,
+      installedVersion: '',
       errorMessage: message,
     }
   }
