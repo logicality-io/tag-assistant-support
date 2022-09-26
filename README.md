@@ -30,12 +30,17 @@ Logicality Tag Assistant is a desktop Windows service that bridges reading NFC a
 
 Currently supported devices:
 
-1. iButton reader using [DS9490R USB Adapter](https://www.maximintegrated.com/en/products/ibutton-one-wire/ibutton/DS9490R.html). Download drivers [here](https://www.maximintegrated.com/en/products/ibutton-one-wire/one-wire/software-tools/drivers/download-1-wire-ibutton-drivers-for-windows.html). Supported driver version is `v405`, 64bit.
+1. iButton reader using [DS9490R USB Adapter](https://www.maximintegrated.com/en/products/ibutton-one-wire/ibutton/DS9490R.html).
 2. NFC/RFID Tags using [ACS ACR122U USB NFC](https://www.acs.com.hk/en/products/3/acr122u-usb-nfc-reader/). Other similar devices that support the same standards will likely work. Contact us to verify.
 
 If you would like to see support of additional devices, smart card readers etc., please contact us.
 
 ## Installation Guide
+
+Download and install drivers for the devices you wish to use:
+
+- [iButton One Wire Drivers](https://www.maximintegrated.com/en/products/ibutton-one-wire/one-wire/software-tools/drivers/download-1-wire-ibutton-drivers-for-windows.html). Supported driver version is `v405`, 64 bit.
+- [ACS ACR122U USB NFC](https://www.acs.com.hk/en/products/3/acr122u-usb-nfc-reader/).
 
 Downloads are available in two formats:
 
@@ -45,16 +50,14 @@ Downloads are available in two formats:
 1. Download the latest `.msi.zip` release from https://github.com/logicality-io/tag-assistant-support/releases
 2. Extract the `msi` installer from the zip file.
 3. Run the `msi` program and follow the on-screen instructions.
+   1.  During installation you may see a windows warning: "Windows protected your PC. Microsoft Defender SmartScreen prevented...".  The reason for this is that the package is not yet digitally signed. This will be addressed in a future version. Click `More Info` followed by `Run anyway` to proceed with installation.
+   2.  If during installation you will see a windows warning, "Do you want to allow this app from an unknown publisher to make changes to your device?". The reason for this is that the package is not yet digitally signed. This will be addressed in a future version. Click "Proceed" to continue.
 4. After installation browse to http://localhost:37888 to view the embedded Administation UI, diagnostics, configuration and to test your installation.
-5. Go to https://tag-assistant.logicality.io to test your installation with a remote web application.
+5. Additionally, go to https://tag-assistant.logicality.io to test your installation with a remote web application.
 
 Notes:
-1. During installation you may see a windows warning: "Windows protected your PC. Microsoft Defender SmartScreen prevented...".  The
-reason for this is that the package is not yet digitally signed. This will be addressed in a future version. Click `More Info` followed by `Run anyway` to proceed with installation.
-2. If during installation you will see a windows warning, "Do you want to allow this app from an unknown publisher to make changes to your device?". 
-. The reason for this is that the package is not yet digitally signed. This will be addressed in a future version. Click "Proceed" to continue.
-3. By default, Tag Assistant will install into `%ProgramFiles%\Logicality\Tag Assistant`.
-4. Tag Assistant stores data (configuration and logs) in `%ProgramData%\Logicality\Tag Assistant\`
+1. By default, Tag Assistant will install into `%ProgramFiles%\Logicality\Tag Assistant`.
+2. Tag Assistant stores data (configuration and logs) in `%ProgramData%\Logicality\Tag Assistant\`
 
 ## Configuration
 
@@ -87,7 +90,7 @@ after making any changes.
 
 ### Scripted installation.
 
-Many enterprise will re-package `.msi` installers for their own needs. If that options is chosen, an `origins.json` file can 
+Many enterprise will re-package `.msi` installers for their own needs. If that option is chosen, an `origins.json` file can 
 be packed and stored in the installation directory. Tag Assistant will use this configuration regardless of whether an `origins.json`
 file exists in the data directory or not. Configuration through the embedded Administration UI will be disabled.
 
