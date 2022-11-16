@@ -75,7 +75,7 @@ After running the software for the first time, if no Allowed CORS Origns configu
 
 ```json
 {
-  "allowedOrigins": [
+  "allowedCorsOrigins": [
     "https://tag-assistant.logicality.io"
   ]
 }
