@@ -39,7 +39,7 @@ If you would like to see support of additional devices, smart card readers etc.,
 
 Download and install drivers for the devices you wish to use:
 
-- [iButton One Wire Drivers](https://www.analog.com/en/design-center/evaluation-hardware-and-software/1-wire-sdks/download-1wire-ibutton-drivers.html). Supported driver version is `v405`, 64 bit.
+- [iButton One Wire Drivers](https://www.analog.com/en/design-center/evaluation-hardware-and-software/1-wire-sdks/download-1wire-ibutton-drivers.html). Supported bitness x64.
 - [ACS ACR122U USB NFC drivers](https://www.acs.com.hk/en/products/3/acr122u-usb-nfc-reader/).
 
 Downloads are available in two formats:
